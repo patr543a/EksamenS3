@@ -6,8 +6,8 @@ public abstract class CustomController<TService>
     : ControllerBase
     where TService : IService
 {
-    protected IService _service;
+    protected TService _service;
 
-    public CustomController(IService service)
+    public CustomController(TService service)
         => _service = service;
 }
