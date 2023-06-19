@@ -14,8 +14,6 @@ public class NoteDto
 
     public virtual EmployeeDto? Employee { get; set; } = null!;
 
-    public virtual TaskDto? Task { get; set; } = null!;
-
     public NoteDto(Note? note)
     {
         if (note is null)
@@ -25,6 +23,5 @@ public class NoteDto
         TaskId = note.TaskId;
         Text = note.Text;
         Employee = note.Employee is null ? null : new(note.Employee);
-        Task = note.Task is null ? null : new(note.Task);
     }
 }
