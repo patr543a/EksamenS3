@@ -10,7 +10,8 @@ public class ResidentService
     : ServiceBase<SosuUnitOfWork, SosuContext>, IResidentService
 {
     public IEnumerable<ResidentDto> GetAllResidents()
-    {
-        throw new NotImplementedException();
-    }
+        => _repositories
+            .ResidentRepository
+            .Get()
+            .Select(r => r.ToDto());
 }
