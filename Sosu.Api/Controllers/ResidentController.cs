@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Entities.Dto.Sosu;
+using Microsoft.AspNetCore.Mvc;
 using Sosu.Api.Base;
 using Sosu.Api.Interfaces;
 
@@ -13,4 +14,9 @@ public class ResidentController
         : base(service)
     {
     }
+
+    [HttpGet]
+    [Route("get")]
+    public async Task<ActionResult<IEnumerable<ResidentDto>>> GetAllResidents()
+        => Ok(await Task.FromResult(_service.GetAllResidents()));
 }
