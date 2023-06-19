@@ -1,6 +1,10 @@
-﻿namespace Entities.Sosu;
+﻿using Entities.Dto.Sosu;
+using Entities.Interfaces;
+
+namespace Entities.Sosu;
 
 public partial class Task
+    : IDtoConversion<Task, TaskDto>
 {
     public int TaskId { get; set; }
 
@@ -23,4 +27,7 @@ public partial class Task
     public virtual ICollection<Note>? Notes { get; set; } = new List<Note>();
 
     public virtual Resident? Resident { get; set; } = null!;
+
+    public TaskDto ToDto()
+        => new(this);
 }
