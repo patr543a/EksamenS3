@@ -1,5 +1,5 @@
 ﻿using Entities.Contexts;
-using Entities.Dto.Sosu;
+using Entities.Sosu;
 using Microsoft.AspNetCore.Mvc;
 using Repository.Sosu;
 using Sosu.Api.Base;
@@ -10,8 +10,8 @@ namespace Sosu.Api.Services;
 public class NoteService
     : ServiceBase<SosuUnitOfWork, SosuContext>, INoteService
 {
-    public ActionResult<NoteDto> AddNote(NoteDto note)
-    {
-        throw new NotImplementedException();
-    }
+    public ActionResult AddNote(Note note)
+        => _repositories
+            .NoteRepository
+            .AddNote(note);
 }
