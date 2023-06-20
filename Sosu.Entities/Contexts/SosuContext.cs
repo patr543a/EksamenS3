@@ -4,7 +4,11 @@ using Task = Entities.Sosu.Task;
 
 namespace Entities.Contexts;
 
-public partial class SosuContext : DbContext
+/// <summary>
+/// Data access for Sosu database
+/// </summary>
+public partial class SosuContext 
+    : DbContext
 {
     public SosuContext()
     {
