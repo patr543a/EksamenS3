@@ -4,7 +4,7 @@ using Repository.Classes;
 namespace Repository.Sosu;
 
 public class SosuUnitOfWork
-    : UnitOfWorkBase<SosuContext>
+    : UnitOfWorkBase
 {
     private EmployeeRepository? _employeeRepository;
     private NoteRepository? _noteRepository;
@@ -12,14 +12,14 @@ public class SosuUnitOfWork
     private TaskRepository? _taskRepository;
 
     public EmployeeRepository EmployeeRepository
-        => _employeeRepository ??= new(_context);
+        => _employeeRepository ??= new(new SosuContext());
 
     public NoteRepository NoteRepository
-        => _noteRepository ??= new(_context);
+        => _noteRepository ??= new(new SosuContext());
 
     public ResidentRepository ResidentRepository
-        => _residentRepository ??= new(_context);
+        => _residentRepository ??= new(new SosuContext());
     
     public TaskRepository TaskRepository
-        => _taskRepository ??= new(_context);
+        => _taskRepository ??= new(new SosuContext());
 }
