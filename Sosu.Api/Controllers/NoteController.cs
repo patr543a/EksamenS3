@@ -1,4 +1,5 @@
-﻿using Entities.Sosu;
+﻿using Entities.Dto.Sosu;
+using Entities.Sosu;
 using Microsoft.AspNetCore.Mvc;
 using Sosu.Api.Base;
 using Sosu.Api.Interfaces;
@@ -18,11 +19,13 @@ public class NoteController
 
     [HttpPost]
     [Route("post")]
-    public async Task<ActionResult> AddNote(Note? note)
+    public async Task<ActionResult<NoteDto>> AddNote(Note? note)
     {
         if (note is null)
             return BadRequest("Missing parameters");
 
-        return await Task.FromResult(_service.AddNote(note));
+        _service.AddNote(note);
+
+        return await Task.FromResult(Ok(note.ToDto()));
     }
 }

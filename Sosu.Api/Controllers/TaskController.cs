@@ -34,6 +34,8 @@ public class TaskController
         if (employeeId is null || taskId is null)
             return BadRequest("Missing parameters");
 
-        return await Task.FromResult(_service.MarkTaskAsComplete((int)employeeId, (int)taskId));
+        _service.MarkTaskAsComplete((int)employeeId, (int)taskId);
+
+        return await Task.FromResult(Ok());
     }
 }
