@@ -23,7 +23,7 @@ public class TaskService
                 return t.ToDto();
             });
 
-    public ActionResult MarkTaskAsComplete(int employeeId, int taskId)
+    public void MarkTaskAsComplete(int employeeId, int taskId)
         => _repositories
             .TaskRepository
             .MarkTaskAsComplete(employeeId, taskId);

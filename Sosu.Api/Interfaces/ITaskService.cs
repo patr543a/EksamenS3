@@ -8,5 +8,5 @@ public interface ITaskService
     : IService
 {
     IEnumerable<TaskDto> GetAllTasksFromResident(int residentId);
-    ActionResult MarkTaskAsComplete(int employeeId, int taskId); 
+    void MarkTaskAsComplete(int employeeId, int taskId); 
 }
