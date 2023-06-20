@@ -14,21 +14,10 @@ public class NoteRepository
     {
     }
 
-    public ActionResult AddNote(Note note)
+    public void AddNote(Note note)
     {
-        try
-        {
-            Insert(note);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.Message);
-
-            return new StatusCodeResult(StatusCodes.Status500InternalServerError);
-        }
+        Insert(note);
 
         Save();
-
-        return new StatusCodeResult(StatusCodes.Status200OK);
     }
 }
