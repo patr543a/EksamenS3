@@ -10,21 +10,40 @@ namespace Entities.Contexts;
 public partial class SosuContext 
     : DbContext
 {
+    /// <summary>
+    /// Creates a new SosuContext
+    /// </summary>
     public SosuContext()
     {
     }
 
+    /// <summary>
+    /// Creates a new SosuContext with given options
+    /// </summary>
+    /// <param name="options">Options</param>
     public SosuContext(DbContextOptions<SosuContext> options)
         : base(options)
     {
     }
 
+    /// <summary>
+    /// DbSet of Employees
+    /// </summary>
     public virtual DbSet<Employee> Employees { get; set; }
 
+    /// <summary>
+    /// DbSet of Notes
+    /// </summary>
     public virtual DbSet<Note> Notes { get; set; }
 
+    /// <summary>
+    /// DbSet of Residents
+    /// </summary>
     public virtual DbSet<Resident> Residents { get; set; }
 
+    /// <summary>
+    /// DbSet of Tasks
+    /// </summary>
     public virtual DbSet<Task> Tasks { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
